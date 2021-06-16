@@ -1,4 +1,42 @@
 // from data.js
 var tableData = data;
 
-// YOUR CODE HERE!
+// Select the button
+var button = d3.select("#filter-btn");
+
+//Select the form
+var form = d3.select("form");
+
+//Create event handlers
+button.on("click", runEnter);
+form.on("submit", runEnter);
+
+//Complete the event handler function for the form
+function runEnter() {
+    
+    //Prevent page from refreshing
+    d3.event.preventDefault();
+
+    //Select the input element and get the raw HTML node
+    var inputElement =  d3.select(".form-control");
+
+    //Get the value property of the input element
+    var inputValue = inputElement.property("value");
+
+    console.log(inputValue);
+    console.log(tableData);
+
+    var table = d3.select("#ufo-table");
+    var tbody = table.append("tbody");
+
+
+    tableData.forEach(function (UFO) {
+        console.log(UFO);
+        var row = tbody.append("tr");
+        Object.entries(UFO).forEach(function([key, value]) {
+            console.log(key, value);
+            var cell = row.append("td").text(value);
+        });
+    });
+
+}
