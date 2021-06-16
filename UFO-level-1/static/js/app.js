@@ -29,12 +29,19 @@ function runEnter() {
     var table = d3.select("#ufo-table");
     var tbody = table.append("tbody");
 
+    //Filter data according to the date user provided
+    var filteredData = tableData.filter(ufodata => ufodata.datetime === inputValue);
 
-    tableData.forEach(function (UFO) {
+    //For each ufo data in the new filteredData
+    filteredData.forEach(function (UFO) {
         console.log(UFO);
+        //Create a row
         var row = tbody.append("tr");
+
+        //For each 'entry' in the data
         Object.entries(UFO).forEach(function([key, value]) {
             console.log(key, value);
+            //Add a td with the value
             var cell = row.append("td").text(value);
         });
     });
