@@ -27,7 +27,12 @@ function runEnter() {
     console.log(tableData);
 
     var table = d3.select("#ufo-table");
+
+    //Remove any existing values from the table to reset in case new filter date
+    table.html("");
+
     var tbody = table.append("tbody");
+
 
     //Filter data according to the date user provided
     var filteredData = tableData.filter(ufodata => ufodata.datetime === inputValue);
