@@ -14,4 +14,4 @@ Given an HTML web page, I used JavaScript and D3.js to append a table to the web
 
 Given a date input, the web page will display the UFO sighting information for that given date.
 
-[!Table](images/table.png)
+![Table](images/table.png)
